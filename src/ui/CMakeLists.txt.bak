@@ -1,0 +1,18 @@
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+
+set(QT_SOURCES
+		"view.h"
+		"view.cpp"
+		"mainwindow.h"
+		"mainwindow.cpp"
+)
+
+set(UI_SOURCES
+		"mainwindows.ui"
+)
+
+qt5_wrap_ui(UI_GENERATED_HEADERS ${UI_SOURCES})
+add_library(ui ${QT_SOURCES} ${UI_GENERATED_HEADERS})
+qt5_use_modules(ui Widgets OpenGL)
